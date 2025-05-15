@@ -37,7 +37,7 @@ const Login: React.FC = () => {
   const LoginForm = () => (
     <>
       <div className={styles.logo}>
-        <img src="/icon.png" className={styles.icon} alt="App Logo" />
+        {/* <img src="/icon.png" className={styles.icon} alt="App Logo" /> */}
         <h1 className={styles.title}>Welcome Back</h1>
       </div>
       <div className={styles.form}>
@@ -67,6 +67,18 @@ const Login: React.FC = () => {
             Register
           </Link>
         </small>
+
+        <small style={{ textAlign: 'center', padding: '5px', fontSize: '0.6rem' }}>
+              Made with love by{' '}
+              <Link
+              className={styles.links}
+                to='https://www.one-front.com'
+                target='_blank'
+                // rel='noopener noreferrer'
+              >
+                ONE-FRONT
+              </Link>
+            </small>
 
         {error && <small className={styles.error}>{error} 😭</small>}
       </div>

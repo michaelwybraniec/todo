@@ -50,7 +50,16 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /* transition: transform 0.3s ease; */
+  transition: transform 2s cubic-bezier(0.25, 1, 0.5, 1), filter 0.3s ease;
+  display: block;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+}
 
+.fullImage:hover {
+  transform: scale(0.995);
+  
 }
 
 /* Right login form column */
@@ -60,7 +69,7 @@ body {
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: center;
  
 }
 
@@ -69,8 +78,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 20px;
-  
+  margin-bottom: 10px;
 }
 
 .icon {
@@ -130,6 +138,13 @@ body {
   cursor: pointer;
 }
 
+.links {
+  color: #fa6000;
+  text-decoration: underline;
+  font-size: 0.6rem;
+  font-weight: 600;
+  cursor: pointer;
+}
 /* Error display */
 .error {
   margin-top: 15px;
@@ -145,10 +160,19 @@ body {
 
   .imageColumn {
     height: 200px;
+    overflow: hidden;
   }
 
   .fullImage {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
+    transition: transform 0.3s ease;
+    display: block;
+  }
+  
+  .fullImage:hover {
+    transform: scale(1.05);
   }
 
   .formColumn {

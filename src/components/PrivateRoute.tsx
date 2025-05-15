@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Route, Redirect, RouteProps } from 'react-router-dom'
 import { getCurrentUser } from '../lib/auth'
+import Loader from '../components/Loader';
 
 interface PrivateRouteProps extends RouteProps {
   component: React.ComponentType<object>
@@ -20,7 +21,7 @@ export const PrivateRoute: React.FC<PrivateRouteProps> = ({ component: Component
   }, [])
 
   if (loading) {
-    return <p>Loading...</p>
+    return <Loader />;
   }
 
   return (

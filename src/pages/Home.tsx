@@ -3,6 +3,7 @@ import { TaskItem } from '../components/TaskItem';
 import { useTasks } from '../hooks/useTasks';
 import SignOutButton from '../components/SignOutButton';
 import styles from './Home.module.css';
+import Loader from '../components/Loader';
 
 export default function Home() {
   const { tasks, loading, addTask, toggleTask, deleteTask, updateTask } =
@@ -37,7 +38,7 @@ export default function Home() {
       <main className={styles.scrollableContent}>
         <div style={{ paddingTop: '20px', paddingBottom: '50px' }}>
           {loading ? (
-            <div className={styles.userInfo} >Loading...</div>
+            <div className={styles.userInfo} ><Loader />;</div>
           ) : tasks.length === 0 ? (
             <div className={styles.userInfo} >You have nothing TODO 🤓</div>
           ) : (
