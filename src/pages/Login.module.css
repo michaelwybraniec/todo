@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  background-color: #121212;
+}
+
+/* Root container centering the card */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  height: 100vh;
+  padding-top: 5rem;
+  background-color: #141414;
+}
+
+/* The card that holds image and form */
+.card {
+  width: 100%;
+  max-width: 1200px;
+  height: 550px;
+  background-color: #1b1a19;
+  border-radius: 12px;
+  overflow: hidden;
+  color: #e5e5e5;
+  display: flex;
+  flex-direction: column;
+
+}
+
+/* Two-column layout */
+.contentRow {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+
+}
+
+/* Left image column */
+.imageColumn {
+  flex: 1;
+  position: relative;
+
+}
+
+.fullImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+}
+
+/* Right login form column */
+.formColumn {
+  max-width: 400px;
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+ 
+}
+
+/* Logo above form */
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  margin-bottom: 8px;
+  border-radius: 50%; 
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+/* Input form fields */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input {
+  padding: 0.5rem;
+  appearance: none;
+  border: 1px solid #35332d;
+  background-color: rgb(27, 26, 25);
+  border-radius: 10px;
+  color: #e5e5e5;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Button styling */
+.loginButton,
+.registerButton {
+  padding: 0.5rem;
+  cursor: pointer;
+  appearance: none;
+  border: 1px solid #35332d;
+  background-color: rgb(49, 42, 35);
+  border-radius: 10px;
+  font-family: 'Inter', sans-serif;
+  color: #e5e5e5;
+}
+
+.loginButton:hover {
+  background-color: #e8c143;
+  border-color: #d6b03f;
+  color: rgb(0, 0, 0);
+}
+
+/* Link button */
+.linkButton {
+  color: #e8c143;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Error display */
+.error {
+  margin-top: 15px;
+  text-align: center;
+  color: #d53d22;
+}
+
+/* Responsive: stack columns on mobile */
+@media (max-width: 768px) {
+  .contentRow {
+    flex-direction: column;
+  }
+
+  .imageColumn {
+    height: 200px;
+  }
+
+  .fullImage {
+    object-fit: cover;
+  }
+
+  .formColumn {
+    padding: 1.5rem;
+  }
+}

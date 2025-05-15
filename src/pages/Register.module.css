@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  padding-top: 30px;
+  height: 100vh;
+  font-family: 'Inter', sans-serif;
+  background-color: #121212;
+}
+
+.card {
+  width: 300px;
+  padding: 1rem;
+  margin-top: 2rem;;
+  background-color: #1b1a19;
+  border-radius: 12px;
+  color: #e5e5e5;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input {
+  padding: 0.5rem;
+  /* font-size: 1rem; */
+  border: 1px solid #35332d;
+  background-color: rgb(27, 26, 25);
+  border-radius: 10px;
+  font-family: 'Inter', sans-serif;
+  color: #e5e5e5;
+}
+
+.registerButton,
+.loginButton {
+  padding: 0.5rem;
+  /* font-size: 1rem; */
+  cursor: pointer;
+  border: 1px solid #35332d;
+  background-color: rgb(49, 42, 35);
+  border-radius: 10px;
+  font-family: 'Inter', sans-serif;
+  color: #e5e5e5;
+  transition: background-color 0.3s ease;
+}
+
+.registerButton:hover {
+  background-color: #d53d22;
+  border-color: #d53d22;
+  color: rgb(255, 255, 255);
+}
+
+
+.error {
+  margin-top: 15px;
+  /* font-size: 0.875rem; */
+  font-family: 'Inter', sans-serif;
+  color: #d53d22;
+}
+
+.success {
+  margin-top: 15px;
+  /* font-size: 0.875rem; */
+  font-family: 'Inter', sans-serif;
+  color: #4caf50;
+}

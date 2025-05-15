@@ -1,60 +1,61 @@
-import MessageListItem from '../components/MessageListItem';
-import { useState } from 'react';
-import { Message, getMessages } from '../data/messages';
-import {
-  IonContent,
-  IonHeader,
-  IonList,
-  IonPage,
-  IonRefresher,
-  IonRefresherContent,
-  IonTitle,
-  IonToolbar,
-  useIonViewWillEnter
-} from '@ionic/react';
-import './Home.css';
+import { TaskForm } from '../components/TaskForm';
+import { TaskItem } from '../components/TaskItem';
+import { useTasks } from '../hooks/useTasks';
+import SignOutButton from '../components/SignOutButton';
+import styles from './Home.module.css';
 
-const Home: React.FC = () => {
-
-  const [messages, setMessages] = useState<Message[]>([]);
-
-  useIonViewWillEnter(() => {
-    const msgs = getMessages();
-    setMessages(msgs);
-  });
-
-  const refresh = (e: CustomEvent) => {
-    setTimeout(() => {
-      e.detail.complete();
-    }, 3000);
-  };
+export default function Home() {
+  const { tasks, loading, addTask, toggleTask, deleteTask, updateTask } =
+    useTasks();
 
   return (
-    <IonPage id="home-page">
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Inbox</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent fullscreen>
-        <IonRefresher slot="fixed" onIonRefresh={refresh}>
-          <IonRefresherContent></IonRefresherContent>
-        </IonRefresher>
+    <div>
+      <header className={styles.header}>
+        <div className={styles.leftContent}>
+          <img src='/icon.png' alt='Icon' className={styles.icon} />
+          <h1 className={styles.title}>TODO</h1>
+        </div>
+        <div className={styles.rightContent}>
+          <div className={styles.signOutButtonWrapper}>
+            <small>
+              <a
+                href='https://www.one-front.com'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+               React & Supabase App | Made with love by ONE-FRONT®
+              </a>
+            </small>
+            <SignOutButton />
+          </div>
+        </div>
+      </header>
 
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">
-              Inbox
-            </IonTitle>
-          </IonToolbar>
-        </IonHeader>
-
-        <IonList>
-          {messages.map(m => <MessageListItem key={m.id} message={m} />)}
-        </IonList>
-      </IonContent>
-    </IonPage>
+      <div style={{ paddingTop: '10px', paddingBottom: '10px' }}>
+        <TaskForm onAdd={addTask} />
+      </div>
+      <main className={styles.scrollableContent}>
+        <div style={{ paddingTop: '20px', paddingBottom: '50px' }}>
+          {loading ? (
+            <div className={styles.userInfo} >Loading...</div>
+          ) : tasks.length === 0 ? (
+            <div className={styles.userInfo} >You have nothing TODO 🤓</div>
+          ) : (
+            tasks.map((task, index) => (
+              <div key={task.id}>
+                <TaskItem
+                  key={task.id}
+                  index={index}
+                  task={task}
+                  onToggle={toggleTask}
+                  onDelete={deleteTask}
+                  onUpdate={updateTask}
+                />
+              </div>
+            ))
+          )}
+        </div>
+      </main>
+    </div>
   );
-};
-
-export default Home;
+}

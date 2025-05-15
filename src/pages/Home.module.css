@@ -1,0 +1,66 @@
+body, main {
+  height: 100%;
+  overflow-y: auto;
+  margin: 0;
+  background-color: #141414;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  width: 700px;
+  margin: 0 auto 30px auto;
+  padding-top: 2rem;
+}
+
+.userInfo {
+  gap: 8px;
+  max-width: 700px;
+  margin: 0 auto 20px auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.leftContent {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%; 
+}
+
+.title {
+  font-size: 2rem;
+}
+
+.rightContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 0.875rem;
+  color: gray;
+  text-align: right;
+}
+
+.rightContent a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.signOutButtonWrapper {
+  margin-top: 10px;
+}
+
+.scrollableContent {
+  height: 80vh;
+  overflow-y: auto;
+  padding: 10px;
+}
