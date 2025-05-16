@@ -51,7 +51,8 @@
   border-radius: 10px;
   font-family: 'Inter', sans-serif;
   color: #e5e5e5;
-  transition: background-color 0.3s ease;
+  transition:  border-color 0.2s ease, background-color 0.2s ease;
+
 }
 
 .registerButton:hover {

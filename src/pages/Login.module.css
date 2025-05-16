@@ -123,11 +123,12 @@ body {
   border-radius: 10px;
   font-family: 'Inter', sans-serif;
   color: #e5e5e5;
+  transition:  border-color 0.2s ease, background-color 0.2s ease;
 }
 
 .loginButton:hover {
   background-color: #e8c143;
-  border-color: #d6b03f;
+  border-color: #e8c143;
   color: rgb(0, 0, 0);
 }
 

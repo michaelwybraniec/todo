@@ -6,10 +6,13 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "build:prod": "GITHUB_PAGES=true vite build",
     "preview": "vite preview",
+    "preview:gh": "GITHUB_PAGES=true vite preview",
     "test.e2e": "cypress run",
     "test.unit": "vitest",
-    "lint": "eslint"
+    "lint": "eslint",
+    "preview:prod": "GITHUB_PAGES=true vite preview"
   },
   "dependencies": {
     "@capacitor/app": "7.0.1",
