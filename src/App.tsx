@@ -5,6 +5,9 @@ import { Route, Redirect } from 'react-router-dom'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Register from './pages/Register'
+import ForgotPassword from './pages/ForgotPassword'
+import ResetPassword from './pages/ResetPassword'
+
 import { PrivateRoute } from './components/PrivateRoute'
 
 const App: React.FC = () => (
@@ -14,6 +17,9 @@ const App: React.FC = () => (
         <PrivateRoute exact path="/home" component={Home} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
+        <Route exact path="/forgot-password" component={ForgotPassword} />
+        <Route exact path="/reset-password" component={ResetPassword} />
+
         <Redirect exact from="/" to="/home" />
       </IonRouterOutlet>
     </IonReactRouter>

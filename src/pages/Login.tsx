@@ -42,17 +42,17 @@ const Login: React.FC = () => {
       </div>
       <div className={styles.form}>
         <input
-          type="email"
+          type='email'
           value={email}
-          placeholder="Email"
+          placeholder='Email'
           onChange={(e) => setEmail(e.target.value)}
           className={styles.input}
         />
 
         <input
-          type="password"
+          type='password'
           value={password}
-          placeholder="Your Password"
+          placeholder='Your Password'
           onChange={(e) => setPassword(e.target.value)}
           className={styles.input}
         />
@@ -62,23 +62,31 @@ const Login: React.FC = () => {
         </button>
 
         <small style={{ textAlign: 'center', padding: '5px' }}>
+          Forgot password?{' '}
+          <Link to='/forgot-password' className={styles.linkButton}>
+            Reset
+          </Link>
+        </small>
+
+        <small style={{ textAlign: 'center', padding: '5px' }}>
           Don't have account yet?{' '}
-          <Link to="/register" className={styles.linkButton}>
+          <Link to='/register' className={styles.linkButton}>
             Register
           </Link>
         </small>
 
-        <small style={{ textAlign: 'center', padding: '5px', fontSize: '0.6rem' }}>
-              Made with love by{' '}
-              <Link
-              className={styles.links}
-                to='https://www.one-front.com'
-                target='_blank'
-                // rel='noopener noreferrer'
-              >
-                ONE-FRONT
-              </Link>
-            </small>
+        <small
+          style={{ textAlign: 'center', padding: '5px', fontSize: '0.6rem' }}
+        >
+          Made with love by{' '}
+          <Link
+            className={styles.links}
+            to='https://www.one-front.com'
+            target='_blank'
+          >
+            ONE-FRONT
+          </Link>
+        </small>
 
         {error && <small className={styles.error}>{error} 😭</small>}
       </div>
@@ -90,7 +98,11 @@ const Login: React.FC = () => {
       <div className={styles.card}>
         <div className={styles.contentRow}>
           <div className={styles.imageColumn}>
-            <img src="/homepage.png" alt="Preview" className={styles.fullImage} />
+            <img
+              src='/homepage.png'
+              alt='Preview'
+              className={styles.fullImage}
+            />
           </div>
           <div className={styles.formColumn}>
             <LoginForm />
