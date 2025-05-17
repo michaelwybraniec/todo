@@ -57,14 +57,14 @@ const LoginForm: React.FC<{
           style={{ textAlign: 'center', padding: '5px', fontSize: '0.6rem' }}
         >
           Made with love by{' '}
-          <Link
+          <a
             className={styles.links}
-            to='https://www.one-front.com'
+            href='https://www.one-front.com'
             target='_blank'
             rel='noopener noreferrer'
           >
             ONE-FRONT
-          </Link>
+          </a>
         </small>
 
         {error && <small className={styles.error}>{error} 😭</small>}
