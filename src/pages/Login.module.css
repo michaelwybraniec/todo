@@ -146,12 +146,14 @@ body {
   font-weight: 600;
   cursor: pointer;
 }
-/* Error display */
 .error {
   margin-top: 15px;
+  font-size: 0.875rem;
+  font-family: 'Inter', sans-serif;
   text-align: center;
   color: #d53d22;
 }
+
 
 /* Responsive: stack columns on mobile */
 @media (max-width: 768px) {

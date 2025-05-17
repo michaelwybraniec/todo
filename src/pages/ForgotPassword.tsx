@@ -1,7 +1,10 @@
 import { useState } from 'react';
-import { supabase } from '../lib/supabase'; // adjust the path if needed
-import styles from './Register.module.css'; // reuse your existing styles
+import { supabase } from '../lib/supabase'; 
+import styles from './Register.module.css';
 import { Link } from 'react-router-dom';
+const redirectUrl =
+  import.meta.env.VITE_REDIRECT_URL ||
+  `${window.location.origin}/reset-password`;
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState('');
@@ -14,7 +17,7 @@ const ForgotPassword = () => {
 
     try {
       const { error } = await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo: 'http://localhost:3000/reset-password', // Change to your production domain
+        redirectTo: redirectUrl,
       });
 
       if (error) throw error;

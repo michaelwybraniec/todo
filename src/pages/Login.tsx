@@ -4,37 +4,15 @@ import { signIn, getCurrentUser } from '../lib/auth';
 import styles from './Login.module.css';
 import { Link } from 'react-router-dom';
 
-const Login: React.FC = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState<string>('');
-  const history = useHistory();
-
-  const handleLogin = async () => {
-    try {
-      const { data, error } = await signIn(email, password);
-      if (error) throw error;
-      if (data.user) history.push('/home');
-    } catch (err) {
-      setError(
-        'Failed to sign in: ' +
-          (err instanceof Error ? err.message : 'Unknown error')
-      );
-    }
-  };
-
-  useEffect(() => {
-    const checkUser = async () => {
-      const user = await getCurrentUser();
-      if (user) {
-        history.push('/home');
-        console.log('User is logged in, no need to show login.');
-      }
-    };
-    checkUser();
-  }, [history]);
-
-  const LoginForm = () => (
+const LoginForm: React.FC<{
+  email: string;
+  setEmail: React.Dispatch<React.SetStateAction<string>>;
+  password: string;
+  setPassword: React.Dispatch<React.SetStateAction<string>>;
+  error: string;
+  handleLogin: () => Promise<void>;
+}> = ({ email, setEmail, password, setPassword, error, handleLogin }) => {
+  return (
     <>
       <div className={styles.logo}>
         {/* <img src="/icon.png" className={styles.icon} alt="App Logo" /> */}
@@ -83,6 +61,7 @@ const Login: React.FC = () => {
             className={styles.links}
             to='https://www.one-front.com'
             target='_blank'
+            rel='noopener noreferrer'
           >
             ONE-FRONT
           </Link>
@@ -92,6 +71,37 @@ const Login: React.FC = () => {
       </div>
     </>
   );
+};
+
+const Login: React.FC = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState<string>('');
+  const history = useHistory();
+
+  const handleLogin = async () => {
+    try {
+      const { data, error } = await signIn(email, password);
+      if (error) throw error;
+      if (data.user) history.push('/home');
+    } catch (err) {
+      setError(
+        'Failed to sign in: ' +
+          (err instanceof Error ? err.message : 'Unknown error')
+      );
+    }
+  };
+
+  useEffect(() => {
+    const checkUser = async () => {
+      const user = await getCurrentUser();
+      if (user) {
+        history.push('/home');
+        console.log('User is logged in, no need to show login.');
+      }
+    };
+    checkUser();
+  }, [history]);
 
   return (
     <div className={styles.container}>
@@ -105,7 +115,14 @@ const Login: React.FC = () => {
             />
           </div>
           <div className={styles.formColumn}>
-            <LoginForm />
+            <LoginForm
+              email={email}
+              setEmail={setEmail}
+              password={password}
+              setPassword={setPassword}
+              error={error}
+              handleLogin={handleLogin}
+            />
           </div>
         </div>
       </div>
