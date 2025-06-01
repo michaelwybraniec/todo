@@ -1,8 +1,12 @@
 # Todo Project
 
+![Build](https://img.shields.io/github/actions/workflow/status/michaelwybraniec/todo/ci.yml)
+![License](https://img.shields.io/github/license/michaelwybraniec/todo)
+
 ## Table of Contents
 - [Todo Project](#todo-project)
   - [Table of Contents](#table-of-contents)
+  - [Badges](#badges)
   - [Overview](#overview)
   - [Features](#features)
   - [Getting Started](#getting-started)
@@ -14,9 +18,15 @@
     - [Running Tests](#running-tests)
   - [Project Structure](#project-structure)
   - [Configuration](#configuration)
+  - [Deployment](#deployment)
   - [Contributing](#contributing)
   - [License](#license)
   - [Demo](#demo)
+  - [Contact \& Support](#contact--support)
+
+## Badges
+![Build](https://img.shields.io/github/actions/workflow/status/michaelwybraniec/todo/ci.yml)
+![License](https://img.shields.io/github/license/michaelwybraniec/todo)
 
 ## Overview
 This project is a modern Todo application built with a focus on performance, maintainability, and developer experience. It leverages the latest web technologies and best practices, including TypeScript, Vite, and Ionic for a robust and scalable solution.
@@ -73,6 +83,21 @@ This project uses Cypress for end-to-end testing. Run `npm run test` to execute 
 - `eslint.config.js` - Linting rules
 - `capacitor.config.ts` - Capacitor configuration for native builds
 
+## Deployment
+You can deploy this app to any static hosting provider (e.g., Vercel, Netlify) by building the project and serving the contents of the `dist/` directory. For example, to deploy to Vercel:
+
+```bash
+npm run build
+vercel --prod
+```
+
+For mobile deployment, use Capacitor to build native apps:
+```bash
+npx cap add ios
+npx cap add android
+npx cap open ios # or android
+```
+
 ## Contributing
 Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
 
@@ -80,4 +105,9 @@ Pull requests are welcome! For major changes, please open an issue first to disc
 [MIT](LICENSE)
 
 ## Demo
+Below is a screenshot of the Todo app. If you have a live demo, you can also link it here.
+
 ![Screenshot](./resources/screenshot.png)
+
+## Contact & Support
+For questions, issues, or feature requests, please open an issue on the [GitHub Issues page](https://github.com/yourusername/todo/issues) or contact the maintainer at michaelwybraniec@me.com.
